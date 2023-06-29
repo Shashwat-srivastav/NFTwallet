@@ -4,12 +4,76 @@ import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:wallet/Screens/CreateWallet.dart';
 
-class HomePage extends StatelessWidget {
+import 'CreateWallet.dart';
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int currentindex = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //-----------------------------bottom app bar---------------------------
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Colors.amber[200],
+        child: Icon(CupertinoIcons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        padding: EdgeInsets.all(10),
+        height: MediaQuery.of(context).size.height * 0.06,
+        child: Row(children: []),
+        // notchMargin: 5,
+        color: Color.fromARGB(255, 99, 196, 218),
+        // backgroundColor: Colors.black87,
+        // landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
+        // onTap: (currentindex) {
+        //   Get.snackbar('index', currentindex.toString());
+        // },
+        // // type: BottomNavigationBarType.shifting,
+        // items: <BottomNavigationBarItem>[
+        //   BottomNavigationBarItem(
+        //     icon: IconButton(
+        //         color: Colors.amber,
+        //         onPressed: () {
+        //           currentindex = 1;
+        //           print(currentindex);
+        //           Get.snackbar('index', currentindex.toString());
+        //           setState(() {});
+        //           Get.to(HomePage());
+        //         },
+        //         icon: Icon(CupertinoIcons.home)),
+        //     label: 'Home',
+        //   ),
+        //   BottomNavigationBarItem(
+        //     icon: IconButton(
+        //       color: Colors.red,
+        //       onPressed: () {
+        //         currentindex = 2;
+        //         print(currentindex);
+        //         Get.snackbar('index', currentindex.toString());
+        //         setState(() {});
+        //         Get.to(CreateWallet());
+        //       },
+        //       icon: Icon(CupertinoIcons.money_dollar),
+        //     ),
+        //     label: 'Wallet',
+        //   ),
+        //   // BottomNavigationBarItem(
+        //   //   icon: Icon(Icons.school),
+        //   //   label: 'Profile',
+        //   // ),
+        // ],
+      ),
+      //---------------------------------------------------------------------------
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
