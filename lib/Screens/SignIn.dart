@@ -13,9 +13,12 @@ class SignIn extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           body: Container(
+        height: double.maxFinite,
         decoration: BoxDecoration(
-          color: Colors.white30,
-        ),
+            gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 199, 227, 241),
+          Color.fromARGB(255, 182, 220, 237)
+        ])),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(children: [
@@ -41,6 +44,9 @@ class SignIn extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.5,
                   width: MediaQuery.of(context).size.width * 0.8,
                   decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('lib/images/8288032.jpg'),
+                          fit: BoxFit.cover),
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.white),

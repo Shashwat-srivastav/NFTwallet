@@ -28,9 +28,12 @@ class _SignUpState extends State<SignUp> {
     return SafeArea(
       child: Scaffold(
           body: Container(
+        height: double.maxFinite,
         decoration: BoxDecoration(
-          color: Colors.white30,
-        ),
+            gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 199, 227, 241),
+          Color.fromARGB(255, 182, 220, 237)
+        ])),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(children: [
@@ -49,9 +52,17 @@ class _SignUpState extends State<SignUp> {
                   height: MediaQuery.of(context).size.height * 0.8,
                   width: MediaQuery.of(context).size.width * 0.85,
                   decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('lib/images/6060363.jpg'),
+                          fit: BoxFit.cover),
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.white),
+                      color: Colors.white
+                      // gradient: LinearGradient(colors: [
+                      //   Color.fromARGB(255, 206, 206, 235),
+                      //   Color.fromARGB(255, 178, 176, 241)
+                      // ]),
+                      ),
                   child: Form(
                       child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
