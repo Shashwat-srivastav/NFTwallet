@@ -91,6 +91,10 @@ class Payment extends StatelessWidget {
                       width: MediaQuery.of(context).size.height * 0.37,
                       height: MediaQuery.of(context).size.height * 0.5,
                       decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image:
+                                  AssetImage('lib/images/paymentdetback.jpg'),
+                              fit: BoxFit.cover),
                           border: Border.all(color: Colors.black),
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.white),
