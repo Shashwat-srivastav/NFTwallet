@@ -2,9 +2,48 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
-class Payment extends StatelessWidget {
+
+class Payment extends StatefulWidget {
   const Payment({super.key});
+
+  @override
+  State<Payment> createState() => _PaymentState();
+}
+
+class _PaymentState extends State<Payment> {
+  late Razorpay _razorpay;
+
+  @override
+  void initState() {
+    super.initState();
+    _razorpay = Razorpay();
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+  }
+
+  void _handlePaymentSuccess(PaymentSuccessResponse response) {
+    // Handle payment success
+    print("Payment Successful: ${response.paymentId}");
+  }
+
+  void _handlePaymentError(PaymentFailureResponse response) {
+    // Handle payment failure
+    print("Payment Error: ${response.code} - ${response.message}");
+  }
+
+  void _handleExternalWallet(ExternalWalletResponse response) {
+    // Handle external wallet selection
+    print("External Wallet: ${response.walletName}");
+  }
+
+  @override
+  void dispose() {
+    _razorpay.clear();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
